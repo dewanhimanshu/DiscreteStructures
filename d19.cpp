@@ -4,67 +4,70 @@ class graph
 {
     int siz;
     int lis[100][100];
-    int count;
-public:
+    int n;
+
+    public:
     graph()
     {
-        for(int i=0; i<100; i++)
+        cout<<"\nenter the number of vertices you want";
+        cin>>siz;
+        for(int i=0;i<siz;i++)
         {
-            for(int j=0; j<100; j++)
+            for(int j=0;j<siz;j++)
             {
                 lis[i][j]=0;
             }
         }
-        count=0;
+
+    }
+    void matrix()
+    {
+        for(int i=0;i<siz;i++)
+        {
+            for(int j=0;j<siz;j++)
+            {
+            cout<<lis[i][j]<<"\t";
+            }
+            cout<<endl;
+        }
+
 
     }
     void input()
     {
-        int v1=0;
-        int v2[100];
+        cout<<"\nenter the vertices in pairs";
+        int v1 =0,v2=0;
+
         while(v1!=-1)
         {
-            cout<<"\nenter the vertix";
             cin>>v1;
-            cout<<"\nenter the no vertices adjacent to it";
-            int n;
-            cin>>n;
-            for(int i=0;i<n;i++)
+            cin>>v2;
+            if(v1!=-1)
             {
-            cout<<"enter adjacent vertices";
-            cin>>v2[i];
+            lis[v1][v2] = 1;
+            lis[v2][v1] = 1;
             }
-            if(n%2==1)
-            {
-                count++;
-
-            }
-
-
-
         }
-
-
     }
+
     void tell()
     {
-        if(count==0)
+
+        cout<<"\nenter the number of verices in path";
+        int c;
+        cin>>c;
+        int temp[c];
+        int check[c];
+        cout<<"\nenter the vertices";
+        for(int i=0;i<c;i++)
         {
-            cout<<"\neuler circuit";
+            cin>>temp[i];
+            check[c]=1;
         }
-        else if(count==2)
+        for(int i=0;i<c;i++)
         {
-            cout<<"\neuler path";
+
         }
-        else
-        {
-            cout<<"\nkuch nahi";
-        }
-
-
-
-
-
 
     }
 
@@ -75,6 +78,7 @@ int main()
 {
     graph g;
     g.input();
+    g.matrix();
     g.tell();
 
 }
